@@ -1,71 +1,169 @@
-/* Simple, accessible portfolio stylesheet */
-:root{
-  --bg:#ffffff;
-  --text:#222222;
-  --muted:#5b6b7a;
-  --brand:#0b76d1;
-  --accent:#ff6b6b;
-  --container:1100px;
-}
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.5;
-}
-.container{max-width:var(--container);margin:0 auto;padding:1rem}
-.header-inner{display:flex;align-items:center;justify-content:space-between;padding:0.5rem 0}
-.brand{font-weight:700;color:var(--brand);text-decoration:none;font-size:1.25rem}
-.main-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1rem}
-.main-nav a{color:var(--text);text-decoration:none;padding:0.25rem 0.5rem;border-radius:4px}
-.main-nav a:focus,.main-nav a:hover{outline:2px solid transparent;box-shadow:0 0 0 3px color-mix(in srgb, var(--brand) 12%, transparent)}
-.nav-toggle{background:none;border:0;padding:0.25rem;display:none}
-.nav-toggle .hamburger{display:block;width:24px;height:2px;background:var(--text);position:relative}
-.nav-toggle .hamburger::before,.nav-toggle .hamburger::after{content:"";position:absolute;left:0;width:24px;height:2px;background:var(--text)}
-.nav-toggle .hamburger::before{top:-7px}
-.nav-toggle .hamburger::after{top:7px}
-.hero{padding:2rem 0}
-.hero .lead{color:var(--muted);max-width:60ch}
-.btn{display:inline-block;padding:0.5rem 0.9rem;border-radius:6px;border:1px solid #ddd;background:#fff;color:var(--text);text-decoration:none}
-.btn.primary{background:var(--brand);color:#fff;border-color:transparent}
-.intro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2rem 0}
-.project-list{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-.project-card{border:1px solid #e6e6e6;padding:1rem;border-radius:8px;background:#fafafa}
-.project-media img{width:100%;height:auto;display:block;border-radius:6px}
-.skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
-.skill progress{width:100%;height:1rem}
-.site-footer{border-top:1px solid #eee;padding:1rem 0;margin-top:2rem;color:var(--muted)}
-.sr-only{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
-.contact-form{max-width:720px}
-.contact-form label{display:block;margin-top:1rem}
-.contact-form input,.contact-form textarea{width:100%;padding:0.5rem;border:1px solid #ccc;border-radius:6px}
-.form-status{margin-top:1rem}
-
-/* Slider */
-.slider{display:flex;align-items:center;gap:0.5rem;margin-top:1rem}
-.slides{overflow:hidden;flex:1}
-.slides .slide{display:none;padding:0.5rem}
-.slides .slide img{width:100%;height:auto;border-radius:8px}
-.slides .slide.active{display:block}
-.slider-btn{background:rgba(0,0,0,0.6);color:#fff;border:0;padding:0.5rem;border-radius:4px}
-
-/* Responsive */
-@media (max-width:900px){
-  .intro-grid{grid-template-columns:1fr}
-  .project-list{grid-template-columns:1fr}
-  .skills-grid{grid-template-columns:1fr}
+/* === GENERAL STYLES === */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  color: #222;
+  line-height: 1.6;
 }
 
-@media (max-width:700px){
-  .nav-toggle{display:block}
-  .main-nav{position:absolute;top:64px;right:1rem;background:#fff;border:1px solid #eee;border-radius:8px;padding:0.5rem;display:none}
-  .main-nav[aria-hidden="false"]{display:block}
-  .main-nav ul{flex-direction:column}
-  .header-inner{position:relative}
+/* === HEADER === */
+header {
+  background-color: #111;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-/* high contrast focus */
-a:focus{outline:3px solid #ffd54f;outline-offset:2px}
+header h1 {
+  font-size: 1.5rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a:hover,
+nav a.active {
+  color: #00bcd4;
+}
+
+/* === MOBILE MENU BUTTON === */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* === MAIN CONTENT === */
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+h2 {
+  border-bottom: 3px solid #00bcd4;
+  display: inline-block;
+  padding-bottom: 0.3rem;
+}
+
+/* === PROJECTS GRID === */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.project {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.project:hover {
+  transform: translateY(-5px);
+}
+
+/* === SKILLS SECTION === */
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.skill {
+  background-color: #00bcd4;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+/* === FORM STYLES === */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 2rem auto;
+}
+
+input, textarea {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background-color: #111;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #00bcd4;
+}
+
+.success-message {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* === FOOTER === */
+footer {
+  background-color: #111;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background-color: #111;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
