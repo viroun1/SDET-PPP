@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Home — Your Name</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Your Name</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="mainNav" aria-label="Toggle navigation">
+        <span class="hamburger"></span>
+      </button>
+      <nav class="main-nav" role="navigation" aria-hidden="true">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" id="content">
+    <section class="hero" aria-labelledby="hero-heading">
+      <h1 id="hero-heading">Hi, I'm Your Name</h1>
+      <p class="lead">I'm a software engineer focusing on web development, testing, and accessible user interfaces. I build responsive, performant, and maintainable websites and apps.</p>
+      <p>
+        <a class="btn primary" href="projects.html">See my projects</a>
+        <a class="btn" href="contact.html">Get in touch</a>
+      </p>
+    </section>
+
+    <section class="intro-grid" aria-labelledby="intro-heading">
+      <h2 id="intro-heading" class="sr-only">Overview</h2>
+      <article>
+        <h3>What I do</h3>
+        <p>Front-end development, automated testing, and building accessible interfaces that work well on any device.</p>
+      </article>
+      <article>
+        <h3>Education</h3>
+        <p>B.S. in Computer Science — Example University (placeholder)</p>
+      </article>
+      <article>
+        <h3>Interests</h3>
+        <p>Web performance, accessibility, automation, and learning new cloud deployment workflows.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Your Name — <a href="https://github.com/your-github" target="_blank" rel="noopener">GitHub</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
